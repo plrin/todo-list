@@ -12,19 +12,21 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        // watch: {
-        //     scripts: {
-        //         files: ['**/*.scss'],
-        //         tasks: ['sass'],
-        //         options: {
-        //             spawn: false
-        //         }
-        //     }
-        // }
+        watch: {
+            scripts: {
+                files: ['**/*.scss'],
+                tasks: ['sass'],
+                options: {
+                    spawn: false
+                }
+            }
+        }
     });
     
     
     grunt.loadNpmTasks('grunt-contrib-sass');
-    // grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     
+    grunt.registerTask('default', ['sass']);
+
 };
