@@ -1,5 +1,67 @@
+/* responsive mixin
+ * usage
+ * @include mq($md) {
+ *    attribute: property;
+ * }
+ */
+* {
+  box-sizing: border-box; }
+
 body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  width: 100%; }
+  width: 100%;
+  font-size: 16px;
+  background-color: #fff; }
+  @media only screen and (min-width: 750px) {
+    body, html {
+      font-size: 18px; } }
+  @media only screen and (min-width: 1200px) {
+    body, html {
+      font-size: 20px; } }
+
+.todo-app {
+  width: 100%;
+  background-color: aqua;
+  margin: 0 auto;
+  padding: 0 100px 50px 100px; }
+  @media only screen and (min-width: 750px) {
+    .todo-app {
+      width: 80%;
+      max-width: 900px; } }
+  @media only screen and (min-width: 1200px) {
+    .todo-app {
+      width: 80%;
+      max-width: 900px; } }
+
+.headline-wrapper {
+  overflow: auto;
+  text-align: center; }
+
+.input-wrapper {
+  width: 100%;
+  margin: 0 auto; }
+  .input-wrapper .input-field {
+    width: 100%;
+    padding: 10px; }
+
+.list-container {
+  list-style: none; }
+  .list-container .list-container__list-item {
+    position: relative; }
+  .list-container .icon-close {
+    position: absolute;
+    right: 0; }
+    .list-container .icon-close::before {
+      content: "x";
+      display: block;
+      position: relative;
+      height: 14px;
+      width: 14px;
+      color: black;
+      border: 1px solid black;
+      border-radius: 50%;
+      cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */

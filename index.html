@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/todo.lib.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
     <div class="todo-app">
+        <div class="headline-wrapper">
+            <h1 class="headline-1">MY TO-DO'S</h1>
+        </div>
+        <div class="input-wrapper">
+            <input type="text" class="input-field" />
+        </div>
 
+        <div class="list-container">
+            <ul class="list-container__list">
+                <li class="list-container__list-item">
+                    <span class="icon-done">
+                        <input type="checkbox" class="icon-done__checkbox">
+                    </span>
+                    <span class="list-container__item-text">my first item</span>
+                    <span class="icon-close"></span>
+                </li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>

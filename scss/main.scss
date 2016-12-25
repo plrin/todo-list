@@ -1,7 +1,91 @@
+// include libraries
+@import "lib/_config";
+@import "lib/_mixins.scss";
+
 // main file
+* {
+  box-sizing: border-box;
+}
 body, html {
+  @include mq(md) {
+    font-size: $font-size-md;
+  }
+  @include mq(lg) {
+    font-size: $font-size-lg;
+  }
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
+  font-size: $font-size-sm;
+  background-color: $background-body;
 }
+
+.todo-app {
+  @include mq(md) {
+    width: 80%;
+    max-width: 900px;
+  }
+  @include mq(lg) {
+    width: 80%;
+    max-width: 900px;
+  }
+  width: 100%;
+  background-color: $background-app;
+  margin: 0 auto;
+  padding: 0 100px 50px 100px;
+}
+
+// region headline wrapper
+
+.headline-wrapper {
+  overflow: auto;
+  text-align: center;
+}
+// endregion
+
+// region input wrapper
+.input-wrapper {
+  width: 100%;
+  margin: 0 auto;
+
+  .input-field {
+    width: 100%;
+    padding: 10px;
+
+  }
+}
+// endregion
+
+// region list container
+.list-container {
+  list-style: none;
+
+  .list-container__list-item {
+    position: relative;
+  }
+
+  .list-container__item-text {
+
+  }
+
+  .icon-close {
+    position: absolute;
+    right: 0;
+
+    &::before {
+      content: "x";
+      display: block;
+      position: relative;
+      height: 14px;
+      width: 14px;
+      color: black;
+      border: 1px solid black;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+// endregion
+
+// include modules

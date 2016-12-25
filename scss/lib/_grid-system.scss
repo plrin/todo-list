@@ -1,0 +1,38 @@
+.grid-container{
+  width: 100%;
+}
+/*-- our cleafix hack -- */
+.grid-row:before,
+.grid-row:after {
+  content:"";
+  display: table ;
+  clear:both;
+}
+[class*='grid-col-'] {
+  float: left;
+  min-height: 1px;
+  width: 5%;
+  /*-- our gutter --*/
+  padding: 0;
+}
+
+.grid-col-1{ width: 5%; }
+.grid-col-2{ width: 10%; }
+.grid-col-3{ width: 15%; }
+.grid-col-4{ width: 20%; }
+.grid-col-5{ width: 25%; }
+.grid-col-6{ width: 30%; }
+.grid-col-7{ width: 35%; }
+.grid-col-8{ width: 40%; }
+.grid-col-9{ width: 45%; }
+.grid-col-10{ width: 50%; }
+.grid-col-11{ width: 55%; }
+.grid-col-12{ width: 60%; }
+.grid-col-13{ width: 65%; }
+.grid-col-14{ width: 70%; }
+.grid-col-15{ width: 75%; }
+.grid-col-16{ width: 80%; }
+.grid-col-17{ width: 85%; }
+.grid-col-18{ width: 90%; }
+.grid-col-19{ width: 95%; }
+.grid-col-20{ width: 100%; }
