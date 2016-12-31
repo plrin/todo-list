@@ -59,14 +59,48 @@ body, html {
 
 // region list container
 .list-container {
-  list-style: none;
+
+  .list-container__finished,
+  .list-container__deleted,
+  .list-container__normal {
+    display: none;
+    list-style: none;
+    padding: 0;
+  }
+
+  .show {
+    display: block !important;
+  }
+
 
   .list-container__list-item {
     position: relative;
   }
 
   .list-container__item-text {
+    margin-left: 20px;
+  }
 
+  .icon-done {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid black;
+    cursor: pointer;
+
+
+  }
+
+  .done {
+
+    &::before {
+      content: "y";
+      position: relative;
+    }
+
+    & + .list-container__item-text {
+      text-decoration: line-through;
+    }
   }
 
   .icon-close {

@@ -46,22 +46,41 @@ body, html {
     width: 100%;
     padding: 10px; }
 
-.list-container {
-  list-style: none; }
-  .list-container .list-container__list-item {
-    position: relative; }
-  .list-container .icon-close {
-    position: absolute;
-    right: 0; }
-    .list-container .icon-close::before {
-      content: "x";
-      display: block;
-      position: relative;
-      height: 14px;
-      width: 14px;
-      color: black;
-      border: 1px solid black;
-      border-radius: 50%;
-      cursor: pointer; }
+.list-container .list-container__finished,
+.list-container .list-container__deleted,
+.list-container .list-container__normal {
+  display: none;
+  list-style: none;
+  padding: 0; }
+.list-container .show {
+  display: block !important; }
+.list-container .list-container__list-item {
+  position: relative; }
+.list-container .list-container__item-text {
+  margin-left: 20px; }
+.list-container .icon-done {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 1px solid black;
+  cursor: pointer; }
+.list-container .done::before {
+  content: "y";
+  position: relative; }
+.list-container .done + .list-container__item-text {
+  text-decoration: line-through; }
+.list-container .icon-close {
+  position: absolute;
+  right: 0; }
+  .list-container .icon-close::before {
+    content: "x";
+    display: block;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */
