@@ -14,21 +14,7 @@ $(function() {
         }
     );
     
+    new CouchDB();
+    
 });
 
-function maxMultiple(divisor, bound) {
-    
-    var result;
-    
-    for(i = bound; i > 0; i--) {
-        var tmp = i % divisor;
-        if (tmp == 0) {
-            result = i;
-            break
-        }
-        console.log(i + " : " + tmp);
-    }
-    
-    return result;
-    
-}
