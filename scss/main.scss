@@ -66,6 +66,9 @@ body, html {
     display: none;
     list-style: none;
     padding: 0;
+    word-break: break-word;
+    word-wrap: break-word;
+
   }
 
   .show {

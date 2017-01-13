@@ -31,17 +31,18 @@ function CouchDB() {
     }
     
 }
+/*
+* POUCH stuff
+* */
 
-function create() {
-    var o = {"name":"Bond"};
-    $.ajax({
-        type: "POST",
-        url: 'http://localhost:5984/todo-list/_design/view2/_view/new-view?limit=20&reduce=false',
-        contentType: "application/json",
-        data: JSON.stringify(o),
-        dataType: "json",
-        success: function(data) {
-            console.log(data.id + " created !");
-        }
-    });
-}
+var couchURL = "http://localhost:5984/todo-list";
+var pouchURL = "to-dos";
+var pouch = new PouchDB(couchURL);
+
+// PouchDB.debug.enabled("*");
+
+pouch.info().then(function (info) {
+    // document.getElementsByClassName("list-container__finished").innerHTML = "info: " + JSON.stringify(info);
+    $(".list-container__finished").text(JSON.stringify(info));
+    console.log("ASD: " + JSON.stringify(info) );
+});

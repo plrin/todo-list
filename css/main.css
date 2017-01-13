@@ -51,7 +51,9 @@ body, html {
 .list-container .list-container__normal {
   display: none;
   list-style: none;
-  padding: 0; }
+  padding: 0;
+  word-break: break-word;
+  word-wrap: break-word; }
 .list-container .show {
   display: block !important; }
 .list-container .list-container__list-item {

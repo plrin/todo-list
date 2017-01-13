@@ -10,6 +10,10 @@ function TodoApp($el) {
         $btnFinished  = $el.btnFinished,
         $btnDelete  = $el.btnDelete;
     
+    _.$input      = $el.input;
+    _.$lsNormal      = $el.listNormal;
+    _.$lsFinished  = $el.listFinished;
+    _.$lsDel      = $el.listDeleted;
     
     // region EVENT LISTENER
     $input.on("keydown", function (e) {
@@ -47,7 +51,7 @@ TodoApp.prototype.init = function() {
 };
 
 TodoApp.prototype.addItem = function() {
-    var value = $input.val(),
+    var value = this.$input.val(),
         html = '<li class="list-container__list-item">' +
             '<span class="icon-done"></span>' +
             '<span class="list-container__item-text">' + value +'</span>' +
@@ -55,9 +59,9 @@ TodoApp.prototype.addItem = function() {
             '</li>';
     
     if (value.trim().length > 0)
-        $lsNormal.append(html);
+        this.$lsNormal.append(html);
     
-    $input.val("");
+    this.$input.val("");
 };
 
 TodoApp.prototype.removeItem = function(item) {
@@ -74,9 +78,9 @@ TodoApp.prototype.markedAsDone = function(item) {
 TodoApp.prototype.showList = function(button) {
     var attr = button.data("list"),
         cssClass = ".list-container__" + attr;
-    $lsNormal.removeClass("show");
-    $lsFinished.removeClass("show");
-    $lsDel.removeClass("show");
+    this.$lsNormal.removeClass("show");
+    this.$lsFinished.removeClass("show");
+    this.$lsDel.removeClass("show");
     
     console.log(cssClass);
     
