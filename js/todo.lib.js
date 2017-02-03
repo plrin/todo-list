@@ -18,7 +18,9 @@ function TodoApp($el) {
     // region EVENT LISTENER
     $input.on("keydown", function (e) {
         if(e.which == 13) {
+            _.addItemToDb();
             _.addItem();
+            // new CouchDB().addItemToDb();
         }
     });
     
@@ -27,7 +29,7 @@ function TodoApp($el) {
     });
     
     $(document).on("click", done, function() {
-        _.markedAsDone($(this));
+        _.markedAsDone($(this).parent());
     });
 
     $btnAll.on("click", function() {
@@ -64,11 +66,46 @@ TodoApp.prototype.addItem = function() {
     this.$input.val("");
 };
 
+TodoApp.prototype.addItemToDb = function () {
+    var db = new PouchDB("http://localhost:5984/todo-list"),
+        doc = {
+            "_id": "to-do-" + Date.now(),
+            "item": $(".input-field").val(),
+            "state": "open"
+        };
+        db.put(doc);
+        db.close().then(function () {
+            // success
+        });
+};
+
 TodoApp.prototype.removeItem = function(item) {
+    var id = item.parent().data("id"),
+        db = new PouchDB("http://localhost:5984/todo-list/");
+    db.get(id).then(function (doc) {
+        // remove doc from database
+        return db.remove(doc);
+    });
+    db.close().then(function () {
+        // success
+    });
+    
     item.parent().remove();
 };
 
 TodoApp.prototype.markedAsDone = function(item) {
+    var id = item.parent().data("id"),
+        db = new PouchDB("http://localhost:5984/todo-list/");
+    db.get(id).then(function (doc) {
+        // change status
+        doc = {
+            "state": "finished"
+        }
+    });
+    db.close().then(function () {
+        // success
+    });
+    
     if (item.hasClass("done"))
         item.removeClass("done");
     else

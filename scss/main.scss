@@ -78,6 +78,18 @@ body, html {
 
   .list-container__list-item {
     position: relative;
+
+    &.done {
+
+      .icon-done::before {
+        content: "y";
+        position: relative;
+      }
+
+      .list-container__item-text {
+        text-decoration: line-through;
+      }
+    }
   }
 
   .list-container__item-text {
@@ -90,20 +102,6 @@ body, html {
     height: 14px;
     border: 1px solid black;
     cursor: pointer;
-
-
-  }
-
-  .done {
-
-    &::before {
-      content: "y";
-      position: relative;
-    }
-
-    & + .list-container__item-text {
-      text-decoration: line-through;
-    }
   }
 
   .icon-close {

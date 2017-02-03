@@ -9,7 +9,7 @@ function CouchDB() {
             for (i = 0; i < newData.length; i++) {
                 // console.log(i+1 + ": " + " " + JSON.stringify(newData[i].value));
                 console.log(i+1 + ": " + " " + newData[i].value.item + " (" + newData[i].value.state + ")");
-                addItemFromDb(newData[i].value.item);
+                addItemFromDb(newData[i].id, newData[i].value.item, newData[i].value.state);
             }
         })
         .fail(function() {
@@ -19,15 +19,25 @@ function CouchDB() {
             console.log( "complete" );
         });
     
+    function printListItem(id, item, hasDone) {
+        return '<li class="list-container__list-item ' + hasDone + '" data-id="' + id + '">' +
+            '<span class="icon-done"></span>' +
+            '<span class="list-container__item-text">' + item +'</span>' +
+            '<span class="icon-close"></span>' +
+            '</li>'
+    }
     
-    function addItemFromDb(item) {
-        var html = '<li class="list-container__list-item">' +
-                '<span class="icon-done"></span>' +
-                '<span class="list-container__item-text">' + item +'</span>' +
-                '<span class="icon-close"></span>' +
-                '</li>';
-    
-        $(".list-container__normal").append(html);
+    function addItemFromDb(id, item, status) {
+        
+        if(status == "open") {
+            
+            $(".list-container__normal").append(printListItem(id, item, ""));
+        }
+        else if(status == "finished") {
+            $(".list-container__finished").append(printListItem(id, item, "done"));
+        }
+        else
+            $(".list-container__normal").append(printListItem(id, item, ""));
     }
     
 }
@@ -42,7 +52,5 @@ var pouch = new PouchDB(couchURL);
 // PouchDB.debug.enabled("*");
 
 pouch.info().then(function (info) {
-    // document.getElementsByClassName("list-container__finished").innerHTML = "info: " + JSON.stringify(info);
-    $(".list-container__finished").text(JSON.stringify(info));
     console.log("ASD: " + JSON.stringify(info) );
 });

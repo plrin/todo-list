@@ -58,6 +58,11 @@ body, html {
   display: block !important; }
 .list-container .list-container__list-item {
   position: relative; }
+  .list-container .list-container__list-item.done .icon-done::before {
+    content: "y";
+    position: relative; }
+  .list-container .list-container__list-item.done .list-container__item-text {
+    text-decoration: line-through; }
 .list-container .list-container__item-text {
   margin-left: 20px; }
 .list-container .icon-done {
@@ -66,11 +71,6 @@ body, html {
   height: 14px;
   border: 1px solid black;
   cursor: pointer; }
-.list-container .done::before {
-  content: "y";
-  position: relative; }
-.list-container .done + .list-container__item-text {
-  text-decoration: line-through; }
 .list-container .icon-close {
   position: absolute;
   right: 0; }
